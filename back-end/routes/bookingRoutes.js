@@ -1,10 +1,20 @@
 const express = require("express");
-const { createBooking, getClientBookings } = require("../controllers/bookingController");
+const {
+  createBooking,
+  getClientBookings,
+  getProviderBookings,
+  updateBookingStatus
+} = require("../controllers/bookingController");
+
 const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
 router.post("/create", authMiddleware, createBooking);
-router.get("/client", authMiddleware, getClientBookings); // User Story 6
+router.get("/client", authMiddleware, getClientBookings);
+
+// New for User Story 8
+router.get("/provider", authMiddleware, getProviderBookings);
+router.put("/update-status", authMiddleware, updateBookingStatus);
 
 module.exports = router;
