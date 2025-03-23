@@ -31,3 +31,11 @@ exports.getChat = async (req, res) => {
     res.status(500).json({ message: "Fetch failed", error: err.message });
   }
 };
+
+// Message.find with $or to fetch messages from both sender and receiver
+Message.find({
+  $or: [
+    { senderId: req.user.id, receiverId: userId },
+    { senderId: userId, receiverId: req.user.id },
+  ],
+}).sort({ timestamp: 1 });
