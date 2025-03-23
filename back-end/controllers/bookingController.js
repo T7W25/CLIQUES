@@ -33,3 +33,30 @@ exports.getClientBookings = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch bookings", error: err.message });
   }
 };
+
+const Booking = require("../models/Booking");
+
+// Controller logic for managing bookings (Yujuan)
+
+// Get bookings assigned to the currently logged-in provider
+exports.getProviderBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.find({ providerId: req.user.id }) // ← Qingyao's query
+      .populate("clientId", "name") // ← Qingyao
+      .populate("serviceId", "title"); // ← Qingyao
+    res.json(bookings);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching bookings", error: err.message });
+  }
+};
+
+// Update booking status (Accept/Reject)
+exports.updateBookingStatus = async (req, res) => {
+  const { bookingId, status } = req.body;
+  try {
+    const updated = await Booking.findByIdAndUpdate(bookingId, { status }, { new: true }); // ← Qingyao
+    res.json({ message: "Booking status updated", booking: updated });
+  } catch (err) {
+    res.status(500).json({ message: "Error updating booking", error: err.message });
+  }
+};
