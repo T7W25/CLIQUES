@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { getProfile, updateProfile } from "../../services/api/userApi";
 import { AuthContext } from "../../context/AuthContext";
 
+/**
+ * ProviderProfile: Allows service provider to view and update personal details, availability, and skills.
+ */
 const ProviderProfile = () => {
   const { user } = useContext(AuthContext);
   const [profile, setProfile] = useState({ name: "", email: "", availability: "", skills: "" });
@@ -33,7 +36,7 @@ const ProviderProfile = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Provider Profile</h2>
+      <h2>Service Provider Profile</h2>
       <input name="name" value={profile.name} onChange={handleChange} required />
       <input name="email" value={profile.email} onChange={handleChange} required />
       <input name="availability" value={profile.availability} onChange={handleChange} placeholder="Availability" />
@@ -44,4 +47,3 @@ const ProviderProfile = () => {
 };
 
 export default ProviderProfile;
- 
