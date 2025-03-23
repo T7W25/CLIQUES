@@ -12,3 +12,5 @@ const bookingSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Booking", bookingSchema);
+// Example status: Pending, Booked, Rejected
+status: { type: String, enum: ["Pending", "Booked", "Rejected"], default: "Pending" },
