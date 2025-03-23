@@ -21,3 +21,9 @@ export const processPayment = (data) =>
 // Fetching approved services (already used in ClientHome.jsx)
 export const fetchApprovedServices = () =>
   axios.get(`${API_BASE.SERVICE}/approved`);
+
+// Already includes booking + payment functions
+export const getClientBookings = () =>
+  axios.get("/api/booking/client", {
+    headers: { Authorization: Bearer ${localStorage.getItem("token")} },
+  });
