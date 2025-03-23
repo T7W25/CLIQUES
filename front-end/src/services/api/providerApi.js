@@ -13,3 +13,9 @@ export const updateBookingStatus = (data) =>
   axios.put(${BOOKING_URL}/update-status, data, {
     headers: { Authorization: Bearer ${localStorage.getItem("token")} },
   });
+
+
+export const getEarnings = () =>
+  axios.get(${PAYMENT_URL}/earnings, {
+    headers: { Authorization: Bearer ${localStorage.getItem("token")} },
+  });
