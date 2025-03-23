@@ -23,6 +23,7 @@ const ProviderProfile = () => {
   }, []);
 
   const handleChange = (e) => setProfile({ ...profile, [e.target.name]: e.target.value });
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +40,7 @@ const ProviderProfile = () => {
       <h2>Service Provider Profile</h2>
       <input name="name" value={profile.name} onChange={handleChange} required />
       <input name="email" value={profile.email} onChange={handleChange} required />
+      <input name="availability" value={profile.availability} onChange={handleChange} />
       <input name="availability" value={profile.availability} onChange={handleChange} placeholder="Availability" />
       <textarea name="skills" value={profile.skills} onChange={handleChange} placeholder="Skills (comma separated)" />
       <button type="submit">Update</button>
