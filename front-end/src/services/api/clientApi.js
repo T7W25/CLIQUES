@@ -1,12 +1,23 @@
 import axios from "axios";
 
-const SERVICE_URL = "/api/service";
-const BOOKING_URL = "/api/booking";
+const API_BASE = {
+  BOOKING: "/api/booking",
+  PAYMENT: "/api/payment",
+  SERVICE: "/api/service",
+};
 
-export const fetchApprovedServices = () => axios.get(`${SERVICE_URL}/approved`);
-
+// Booking a service
 export const bookService = (data) =>
-  axios.post(`${BOOKING_URL}/create`, data, {
+  axios.post(`${API_BASE.BOOKING}/create`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 
+// Processing payment
+export const processPayment = (data) =>
+  axios.post(`${API_BASE.PAYMENT}/process`, data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+
+// Fetching approved services (already used in ClientHome.jsx)
+export const fetchApprovedServices = () =>
+  axios.get(`${API_BASE.SERVICE}/approved`);
