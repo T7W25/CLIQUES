@@ -8,7 +8,8 @@ export const getProfile = () =>
     headers: { Authorization: Bearer ${localStorage.getItem("token")} },
   });
 
+
 export const updateProfile = (data) =>
-  axios.put(${API_URL}/profile, data, {
-    headers: { Authorization: Bearer ${localStorage.getItem("token")} },
-  });
+    axios.put("/api/user/profile", data, {
+      headers: { Authorization: Bearer ${localStorage.getItem("token")} },
+    });
