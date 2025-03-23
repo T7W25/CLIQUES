@@ -35,3 +35,6 @@ exports.getEarnings = async (req, res) => {
     res.status(500).json({ message: "Error fetching earnings", error: err.message });
   }
 };
+
+// Query logic to fetch provider payments
+Payment.find({ providerId: req.user.id, status: "Completed" });
