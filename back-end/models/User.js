@@ -8,6 +8,8 @@ const userSchema = new mongoose.Schema({
   availability: { type: String }, // Provider-specific
   skills: [{ type: String }],     // Provider-specific
   createdAt: { type: Date, default: Date.now },
+  availability: { type: String },
+
 });
 
 module.exports = mongoose.model("User", userSchema);
