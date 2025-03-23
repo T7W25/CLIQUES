@@ -19,3 +19,17 @@ exports.createBooking = async (req, res) => {
     res.status(500).json({ message: "Booking failed", error: err.message });
   }
 };
+
+const Booking = require("../models/Booking");
+
+// View all bookings by client
+exports.getClientBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.find({ clientId: req.user.id })
+      .populate("serviceId", "title")
+      .populate("providerId", "name");
+    res.json(bookings);
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch bookings", error: err.message });
+  }
+};
