@@ -60,3 +60,13 @@ exports.updateBookingStatus = async (req, res) => {
     res.status(500).json({ message: "Error updating booking", error: err.message });
   }
 };
+
+// Query logic used in getProviderBookings and updateBookingStatus
+
+// Find all bookings for this provider
+Booking.find({ providerId: req.user.id })
+  .populate("clientId", "name")        // get client name
+  .populate("serviceId", "title");     // get service title
+
+// Update booking status
+Booking.findByIdAndUpdate(bookingId, { status }, { new: true });
