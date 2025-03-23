@@ -22,3 +22,9 @@ exports.updateProfile = async (req, res) => {
     res.status(500).json({ message: "Error updating profile", error: err.message });
   }
 };
+
+// Mongoose query used in getProfile (READ)
+await User.findById(req.user.id).select("-password");
+
+// Mongoose query used in updateProfile (UPDATE)
+await User.findByIdAndUpdate(req.user.id, updates, { new: true }).select("-password");
