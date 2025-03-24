@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Orders and Feedback (User Story 16)
+This feature allows clients to view their previous service bookings and submit feedback for completed services. It includes secure API endpoints for fetching orders and posting feedback, along with user-friendly UI components for client interaction. Feedback is stored and associated with specific orders and clients for quality tracking and future insights.

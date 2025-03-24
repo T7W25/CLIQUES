@@ -1,11 +1,12 @@
+// user routes
 const express = require("express");
-const { updateUserProfile, getUserProfile } = require("../controllers/userController");
-const { protect } = require("../middleware/authMiddleware");
+const { getProfile, updateProfile } = require("../controllers/userController");
+const authMiddleware = require("../middleware/authMiddleware");
+
 const router = express.Router();
 
-router.get("/profile", protect, getUserProfile);
+router.get("/profile", authMiddleware, getProfile);
+router.put("/profile", authMiddleware, updateProfile);
+router.put("/profile", authMiddleware, updateProfile);
 
-router.put("/profile", protect, updateUserProfile);
-
-module.exports = router;
-
+module.exports = router;
