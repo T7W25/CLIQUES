@@ -1,27 +1,26 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const dotenv = require("dotenv");
 const multer = require("multer");
+
 const userRoutes = require("./routes/userRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
 
-dotenv.config();
-
 const app = express();
 
-// CORS Setup
-app.use(cors({ 
-  origin: "http://localhost:3000", // Or your Netlify frontend URL
+// CORS setup
+app.use(cors({
+  origin: "https://your-frontend-site.netlify.app", // <-- Update this
   methods: "GET,POST,PUT,DELETE",
   credentials: true,
 }));
 
 // Middleware
 app.use(express.json());
-app.use("/uploads", express.static("uploads")); // Serve uploaded files
+app.use("/uploads", express.static("uploads")); // Static files
 
-// MongoDB Connection
+// MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -29,7 +28,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("✅ MongoDB Connected Successfully!"))
 .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
-// Multer Setup
+// Multer setup
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, "uploads/"),
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
@@ -40,12 +39,12 @@ const upload = multer({ storage });
 app.use("/api/users", userRoutes);
 app.use("/api/services", serviceRoutes);
 
-// Health Check
+// Health check
 app.get("/", (req, res) => {
   res.status(200).send("Backend is live!");
 });
 
-// Start Server
+// Server start
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
