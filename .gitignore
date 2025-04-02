@@ -9,6 +9,10 @@ front-end/package-lock.json
 back-end/package.json
 back-end/package-lock.json
 
+/front-end/package.json
+/front-end/package-lock.json
+
+
 
 **/package.json
 **/package-lock.json
