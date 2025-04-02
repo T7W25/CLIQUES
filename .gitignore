@@ -10,9 +10,6 @@ back-end/node_modules/
 /build
 /dist
 
-# Lock and package files (optional)
-back-end/package-lock.json
-back-end/package.json
 
 
 
