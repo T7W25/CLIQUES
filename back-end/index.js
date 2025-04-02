@@ -1,21 +1,17 @@
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('./config/db');
+// require('dotenv').config();
+// const express = require('express');
+// const connectDB = require('./config/db');
 
-const app = express();
-connectDB();
+// const app = express();
+// connectDB();
 
-// Middleware (if needed)
-app.use(express.json());
+// // Middleware
+// app.use(express.json());
 
+// // Health check route
+// app.get("/", (req, res) => {
+//   res.status(200).send("Backend is live!");
+// });
 
-// Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
-app.get("/", (req, res) => {
-  res.status(200).send("Backend is live!");
-});
-
-module.exports = app;
+// // Export the app for use in server.js
+// module.exports = app;
