@@ -44,7 +44,7 @@ app.use("/api/users", userRoutes);
 //app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
 app.get("/", (req, res) => {
-  res.status(200).send("Backend is live!");
+  res.status(200).send("Server is healthy");
 });
 
 const PORT = process.env.PORT || 10000;
