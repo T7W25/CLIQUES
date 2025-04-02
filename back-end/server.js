@@ -40,9 +40,13 @@ app.use("/api/services", serviceRoutes); // ✅ New Service API
 // Users
 app.use("/api/users", userRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+//const PORT = process.env.PORT || 5000;
+//app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
 app.get("/", (req, res) => {
   res.status(200).send("Backend is live!");
 });
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
