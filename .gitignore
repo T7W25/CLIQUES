@@ -1,18 +1,28 @@
+# Node modules
 node_modules/
 front-end/node_modules/
 back-end/node_modules/
+
+# Environment files
 .env
 
+# Build output
+/build
+/dist
 
-front-end/package.json
+# Lock and package files (optional)
 front-end/package-lock.json
-back-end/package.json
 back-end/package-lock.json
-
-/front-end/package.json
-/front-end/package-lock.json
-
+front-end/package.json
+back-end/package.json
 
 
-**/package.json
-**/package-lock.json
+
+# Optional: Ignore these if you want to stop tracking backend/frontend package.json
+# But typically you should keep package.json in Git so Netlify/Render can install dependencies
+# front-end/package.json
+# back-end/package.json
+
+# OS files
+.DS_Store
+Thumbs.db
