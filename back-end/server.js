@@ -49,3 +49,9 @@ const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
+app.use(cors({
+  origin: "https://t7w25cliques.netlify.app/", // ✅ Must match your actual frontend domain
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true
+}));
