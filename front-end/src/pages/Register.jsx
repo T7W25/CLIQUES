@@ -48,7 +48,7 @@ const Register = () => {
     formDataToSend.append("role", userType); // ✅ Ensure role is sent
 
     try {
-      const response = await axios.post("http://localhost:5000/api/users/register", formDataToSend, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/users/register`, formDataToSend, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

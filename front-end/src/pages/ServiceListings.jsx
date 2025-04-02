@@ -12,7 +12,7 @@ const ServiceListingPage = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/services/approved"); // ✅ API route
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/services/approved`); // ✅ API route
         setServices(response.data.services);
       } catch (error) {
         console.error("❌ Error fetching services:", error);

@@ -46,8 +46,9 @@ const Profile = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/users/update/${formData.email}`,
+        `${process.env.REACT_APP_API_URL}/api/users/update/${formData.email}`,
         updatedFormData,
+   
         {
           headers: { "Content-Type": "application/json" },
         }
