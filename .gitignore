@@ -11,9 +11,7 @@ back-end/node_modules/
 /dist
 
 # Lock and package files (optional)
-front-end/package-lock.json
 back-end/package-lock.json
-front-end/package.json
 back-end/package.json
 
 
