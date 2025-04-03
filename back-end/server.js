@@ -11,7 +11,8 @@ const app = express();
 
 // CORS setup
 app.use(cors({
-  origin: "https://your-frontend-site.netlify.app", // <-- Update this
+  origin: ["https://your-frontend-site.netlify.app",
+  "http://localhost:3000" ],// <-- Update this
   methods: "GET,POST,PUT,DELETE",
   credentials: true,
 }));
