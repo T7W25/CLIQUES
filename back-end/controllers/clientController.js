@@ -11,7 +11,7 @@ exports.getClientOrders = async (req, res) => {
     res.status(500).json({ success: false, message: "Error fetching orders" });
   }
 };
-
+//UPDATED REQUEST
 exports.submitFeedback = async (req, res) => {
   try {
     const { bookingId, feedback } = req.body;
