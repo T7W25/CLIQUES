@@ -1,1 +1,5 @@
- 
+const bookingSchema = new mongoose.Schema({
+    ...
+    status: { type: String, enum: ["Pending", "Booked", "Cancelled", "Rescheduled"], default: "Pending" },
+    ...
+  }); 
