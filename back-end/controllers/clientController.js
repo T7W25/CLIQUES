@@ -34,3 +34,5 @@ exports.submitFeedback = async (req, res) => {
     res.status(500).json({ success: false, message: "Error submitting feedback" });
   }
 };
+
+const bookings = await Booking.find({ clientId: req.user._id }).lean().populate("serviceId", "title date");
