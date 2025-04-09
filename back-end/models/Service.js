@@ -17,5 +17,12 @@ const ServiceSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
+const serviceSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  availability: { type: String, enum: ["available", "unavailable"], default: "available" },
+  rating: { type: Number, default: 0 }
+});
+
 module.exports = mongoose.model("Service", ServiceSchema);
 
