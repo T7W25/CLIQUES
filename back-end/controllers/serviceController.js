@@ -97,5 +97,20 @@ exports.updateServiceStatus = async (req, res) => {
       res.status(500).json({ success: false, message: "Server error! Unable to update service status." });
     }
   };
+  const Service = require("../models/Service");
 
+exports.getFilteredServices = async (req, res) => {
+  try {
+    const { rating, availability } = req.query;
+    const query = {};
+
+    if (rating) query.rating = { $gte: parseFloat(rating) };
+    if (availability) query.availability = availability;
+
+    const services = await Service.find(query);
+    res.json({ success: true, services });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Failed to filter services" });
+  }
+};
   const services = await Service.find(query).lean();
