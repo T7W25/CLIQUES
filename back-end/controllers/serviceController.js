@@ -114,3 +114,21 @@ exports.getFilteredServices = async (req, res) => {
   }
 };
   const services = await Service.find({ providerId: req.user._id }).lean();
+
+
+  exports.updatePromoPrice = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { promoPrice } = req.body;
+  
+      const service = await Service.findByIdAndUpdate(
+        id,
+        { promoPrice },
+        { new: true }
+      );
+  
+      res.status(200).json({ success: true, service });
+    } catch (err) {
+      res.status(500).json({ success: false, message: "Failed to update promo price" });
+    }
+  };
