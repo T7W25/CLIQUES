@@ -33,3 +33,10 @@ export const getClientBookings = async () => {
       headers: { Authorization: Bearer ${localStorage.getItem("token")} },
     });
   };
+
+export const getFilteredServices = async (filters) => {
+  const res = await axios.get(${process.env.REACT_APP_API_URL}/api/services/filter, {
+    params: filters
+  });
+  return res.data;
+};
