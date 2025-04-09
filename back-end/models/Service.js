@@ -24,5 +24,10 @@ const serviceSchema = new mongoose.Schema({
   rating: { type: Number, default: 0 }
 });
 
+promoPrice: {
+  type: Number,
+  default: null
+}
+
 module.exports = mongoose.model("Service", ServiceSchema);
 

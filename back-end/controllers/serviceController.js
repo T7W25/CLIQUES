@@ -113,4 +113,4 @@ exports.getFilteredServices = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to filter services" });
   }
 };
-  const services = await Service.find(query).lean();
+  const services = await Service.find({ providerId: req.user._id }).lean();
