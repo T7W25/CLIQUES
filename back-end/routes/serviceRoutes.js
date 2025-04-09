@@ -24,6 +24,11 @@ router.put("/update-status/:id", updateServiceStatus); // 🔥 Fix: Correct Rout
 
 // only approved services
 router.get("/approved", getApprovedServices); 
-  
 
-module.exports = router;
+const express = require("express");
+const { getFilteredServices } = require("../controllers/serviceController");
+
+router.get("/filter", getFilteredServices);
+
+module.exports = router;
+  
