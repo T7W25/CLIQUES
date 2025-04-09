@@ -30,5 +30,11 @@ const { getFilteredServices } = require("../controllers/serviceController");
 
 router.get("/filter", getFilteredServices);
 
+const express = require("express");
+const { updatePromoPrice } = require("../controllers/serviceController");
+const auth = require("../middleware/authMiddleware");
+
+router.put("/promo/:id", auth, updatePromoPrice);
+
 module.exports = router;
   
