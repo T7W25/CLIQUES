@@ -16,3 +16,10 @@ export const updatePromotionalPrice = async (id, data) => {
   });
   return res.data;
 };
+
+export const getProviderAnalytics = async () => {
+    const res = await axios.get(${process.env.REACT_APP_API_URL}/api/provider/analytics, {
+      headers: { Authorization: Bearer ${localStorage.getItem("token")} }
+    });
+    return res.data;
+  };
