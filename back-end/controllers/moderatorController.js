@@ -21,3 +21,5 @@ exports.escalateToAdmin = async (req, res) => {
     res.status(500).json({ success: false, message: "Escalation failed" });
   }
 };
+
+const reports = await Report.find({ status: { $in: ["pending", "in_review"] } }).lean();
