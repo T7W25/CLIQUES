@@ -28,3 +28,8 @@ exports.getProviderAnalytics = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to fetch analytics" });
   }
 };
+
+await Service.aggregate([
+  { $match: { providerId: mongoose.Types.ObjectId(providerId) } },
+  { $group: { _id: null, avgRating: { $avg: "$rating" } } }
+]);
