@@ -36,3 +36,25 @@ exports.submitFeedback = async (req, res) => {
 };
 
 const bookings = await Booking.find({ clientId: req.user._id }).lean().populate("serviceId", "title date");
+
+
+exports.cancelBooking = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const booking = await Booking.findByIdAndUpdate(id, { status: "Cancelled" }, { new: true });
+    res.json({ success: true, booking });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Cancellation failed" });
+  }
+};
+
+exports.rescheduleBooking = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { newDate } = req.body;
+    const updated = await Booking.findByIdAndUpdate(id, { date: newDate, status: "Rescheduled" }, { new: true });
+    res.json({ success: true, updated });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Rescheduling failed" });
+  }
+};
