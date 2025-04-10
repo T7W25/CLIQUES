@@ -1,0 +1,2715 @@
+{
+	"info": {
+		"_postman_id": "e95ffd98-cc90-4a49-bf97-be1d19eb90cd",
+		"name": "CLIQUES - Kajal Patel & Team",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6481188",
+		"_collection_link": "https://dark-resonance-999308.postman.co/workspace/My-Workspace~5ba21edc-82be-4bcc-815f-014a5b0eed7c/collection/6481188-e95ffd98-cc90-4a49-bf97-be1d19eb90cd?action=share&source=collection_link&creator=6481188"
+	},
+	"item": [
+		{
+			"name": "Admin Backend",
+			"item": [
+				{
+					"name": "Admin - Auth",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\":\"admin\",\r\n    \"name\":\"john wick\",\r\n    \"email\":\"johnwick@gmail.com\",\r\n    \"phone\":\"7774567890\",\r\n    \"password\":\"hellojohn\",\r\n    \"address\":\"usa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}auth/user/register",
+									"host": [
+										"{{baseurl}}auth"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\":\"nishant@gmail.com\", \r\n    \"password\":\"hello1232\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}auth/user/login",
+									"host": [
+										"{{baseurl}}auth"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"password\":\"hello1232\", \r\n    \"new_password\":\"hello1232\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}auth/user/update/{{admin_id}}",
+									"host": [
+										"{{baseurl}}auth"
+									],
+									"path": [
+										"user",
+										"update",
+										"{{admin_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User Data",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"role\":\"service_provider\", \r\n    \"name\":\"Nishant Thummar\",\r\n    \"phone\":\"7418529630\",\r\n    \"address\":\"Canada\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}auth/user/updateinfo/{{admin_id}}",
+									"host": [
+										"{{baseurl}}auth"
+									],
+									"path": [
+										"user",
+										"updateinfo",
+										"{{admin_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Data From Token",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}auth/user/getuser",
+									"host": [
+										"{{baseurl}}auth"
+									],
+									"path": [
+										"user",
+										"getuser"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "**Admin API**\n\n- Register\n- Login\n- Change Password\n- Update profile\n- Get admin data"
+				},
+				{
+					"name": "Service Categories",
+					"item": [
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/category/show",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"category",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/category/getedititem/67ef72c7eee06d5ca2f67204",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"category",
+										"getedititem",
+										"67ef72c7eee06d5ca2f67204"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Home Services\",\r\n    \"description\": \"We Provide All kinds of Home services.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/category/add",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"category",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Electronics Services\",\r\n    \"description\": \"We Provide All kinds of electronic and gadgets service.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/category/updatecategory/67ef72c7eee06d5ca2f67204",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"category",
+										"updatecategory",
+										"67ef72c7eee06d5ca2f67204"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/category/deletecategory/67ef6d6b77155033290fd571",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"category",
+										"deletecategory",
+										"67ef6d6b77155033290fd571"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Services",
+					"item": [
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/show",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/getedititem/67ef78152fe33bff7f38076d",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"getedititem",
+										"67ef78152fe33bff7f38076d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "67ef72c7eee06d5ca2f67204",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Technics 3010 Foldable Propeller Set",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "India-manufactured propellers for commercial and agriculture drones. Compatible with Hobbywing X8 3090/3011 and T-Motor P80 MF3016. Lightweight, reliable, and precision-balanced for diverse UAV applications.",
+											"type": "text"
+										},
+										{
+											"key": "duties",
+											"value": "Brand\nmPower Lithium\nCapacity\n25200mAh\nCells\nCylindrical\nCharge current: upto 1c\n25A",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "Made in India at its Chennai factory\nBIS certified\nHigh quality manufacturing for long life",
+											"type": "text"
+										},
+										{
+											"key": "images",
+											"type": "file",
+											"src": [
+												"/C:/Users/Nisha/Downloads/FireShot/b8867b57-391f-4682-bf68-b3720fd42aac.jpg",
+												"/C:/Users/Nisha/Downloads/FireShot/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.u2.jpg",
+												"/C:/Users/Nisha/Downloads/FireShot/c5d45821-11f1-4601-a634-c60ad1bb948d.jpg"
+											]
+										},
+										{
+											"key": "price",
+											"value": "70",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/add",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "67ef72c7eee06d5ca2f67204",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Home Service Technics 3010 Foldable Propeller of Set",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "NABL Certified, India-manufactured propellers for commercial and agriculture drones. Compatible with Hobbywing X8 3090/3011 and T-Motor P80 MF3016. Lightweight, reliable, and precision-balanced for diverse UAV applications.",
+											"type": "text"
+										},
+										{
+											"key": "duties",
+											"value": "Brand\nmPower Lithium\nCapacity\n25200mAh\nCells\nCylindrical\nCharge current: upto 1c\n25A",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "Made 1 from high-energy density Lithium Ion chemistry\nSprays up to 650 acres. Lowest cost per acre\nShipped within 48 hours\nMade in India at its Chennai factory\nBIS certified\nHigh quality manufacturing for long life",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "200",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/update/67ef78152fe33bff7f38076d",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"update",
+										"67ef78152fe33bff7f38076d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/delete/67ef77b72fe33bff7f38076b",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"delete",
+										"67ef77b72fe33bff7f38076b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "System Pages",
+					"item": [
+						{
+							"name": "About us",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/getedititem/65f1675652ea8cca51f2170c",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"getedititem",
+												"65f1675652ea8cca51f2170c"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"aboutus\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/add",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"about\":\"We are Favara, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/updateaboutus/65f1660e52ea8cca51f216fa",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"updateaboutus",
+												"65f1660e52ea8cca51f216fa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/deleteaboutus/65f1660e52ea8cca51f216fa",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"deleteaboutus",
+												"65f1660e52ea8cca51f216fa"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Privacy & Policy",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/getedititem/65f179df52ea8cca51f21713",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"getedititem",
+												"65f179df52ea8cca51f21713"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"privacy\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/add",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"privac\":\"We are Favara, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/updateprivacy/65f179df52ea8cca51f21713",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"updateprivacy",
+												"65f179df52ea8cca51f21713"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/deleteprivacy/65f1660e52ea8cca51f216fa",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"deleteprivacy",
+												"65f1660e52ea8cca51f216fa"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Terms & Condition",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/getedititem/65f179df52ea8cca51f21713",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"getedititem",
+												"65f179df52ea8cca51f21713"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"terms\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/add",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"term\":\"We are Favara, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/updateterms/65f179df52ea8cca51f21713",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"updateterms",
+												"65f179df52ea8cca51f21713"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/deleteterms/65f1660e52ea8cca51f216fa",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"deleteterms",
+												"65f1660e52ea8cca51f216fa"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Gallery",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/getedititem/65f1675652ea8cca51f2170c",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"getedititem",
+												"65f1675652ea8cca51f2170c"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"aboutus\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/add",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"add"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"about\":\"We are Favara, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/updateaboutus/65f1660e52ea8cca51f216fa",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"updateaboutus",
+												"65f1660e52ea8cca51f216fa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/deleteaboutus/65f1660e52ea8cca51f216fa",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"deleteaboutus",
+												"65f1660e52ea8cca51f216fa"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"description": "### **System Pages contain:**\n\n- About us\n- Privacy Policy\n- Terms & Condition\n- Banner (Slider)\n- Gallery\n- Video\n- Client\n- Review\n- Contact us"
+				}
+			],
+			"description": "**Admin Backend API**\n\n> We are using token for accessing and use of API for Admin."
+		},
+		{
+			"name": "Website",
+			"item": [
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/category/show",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"category",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/category/getedititem/67ef72c7eee06d5ca2f67204",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"category",
+										"getedititem",
+										"67ef72c7eee06d5ca2f67204"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Service Provider",
+					"item": [
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/show",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show by City",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/city/Ottawa",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"city",
+										"Ottawa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show by Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/category/67ef72c7eee06d5ca2f67204",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"category",
+										"67ef72c7eee06d5ca2f67204"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show by Pricing",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "price",
+											"value": "25",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/pricing",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"pricing"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show by Availability",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/availability/No",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"availability",
+										"No"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show by Experience",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/experience/8",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"experience",
+										"8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Filters",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/filters",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"filters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service-provider/getinfo/67f0c3d2457c558bac7d8bf3",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service-provider",
+										"getinfo",
+										"67f0c3d2457c558bac7d8bf3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Appointment",
+					"item": [
+						{
+							"name": "Get Data by Client ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/appointment/show/client/67f21f20b704389f6902c20c",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"appointment",
+										"show",
+										"client",
+										"67f21f20b704389f6902c20c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by Provider ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/appointment/show/provider/67f0c411457c558bac7d8bfe",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"appointment",
+										"show",
+										"provider",
+										"67f0c411457c558bac7d8bfe"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/appointment/getinfo/67f2be781bf40d24f2b10631",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"appointment",
+										"getinfo",
+										"67f2be781bf40d24f2b10631"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Appointment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"client\": \"67f0c1d9e2e814a1214976b8\",\r\n  \"serviceProvider\": \"660fae8d8adfa62fd123a713\",\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"phone\": \"1234567890\",\r\n  \"address\": \"123 Main St\",\r\n  \"appointment_date\": \"2025-04-10\",\r\n  \"appointment_time\": \"09:00\",\r\n  \"fees\": 150,\r\n  \"card_name\": \"John Doe\",\r\n  \"card_number\": \"4242424242424242\",\r\n  \"card_expiry\": \"12/26\",\r\n  \"card_cvv\": \"123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/appointment/add",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"appointment",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "67ef72c7eee06d5ca2f67204",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Home Service Technics 3010 Foldable Propeller of Set",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "NABL Certified, India-manufactured propellers for commercial and agriculture drones. Compatible with Hobbywing X8 3090/3011 and T-Motor P80 MF3016. Lightweight, reliable, and precision-balanced for diverse UAV applications.",
+											"type": "text"
+										},
+										{
+											"key": "duties",
+											"value": "Brand\nmPower Lithium\nCapacity\n25200mAh\nCells\nCylindrical\nCharge current: upto 1c\n25A",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "Made 1 from high-energy density Lithium Ion chemistry\nSprays up to 650 acres. Lowest cost per acre\nShipped within 48 hours\nMade in India at its Chennai factory\nBIS certified\nHigh quality manufacturing for long life",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "200",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/update/67ef78152fe33bff7f38076d",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"update",
+										"67ef78152fe33bff7f38076d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/delete/67ef77b72fe33bff7f38076b",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"delete",
+										"67ef77b72fe33bff7f38076b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tickets",
+					"item": [
+						{
+							"name": "Get Data by Client ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/ticket/client/67f21f20b704389f6902c20c",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"ticket",
+										"client",
+										"67f21f20b704389f6902c20c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Tickets",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/ticket/all",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"ticket",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Tickets of Admin",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/ticket/admin-tickets",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"ticket",
+										"admin-tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/appointment/getinfo/67f2be781bf40d24f2b10631",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"appointment",
+										"getinfo",
+										"67f2be781bf40d24f2b10631"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Ticket",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"client\": \"67f0c1d9e2e814a1214976b8\",\r\n  \"appointment\": \"67f39055b05afa1a527954b8\",\r\n  \"message\": \"test ticket\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/ticket/add",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"ticket",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "67ef72c7eee06d5ca2f67204",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Home Service Technics 3010 Foldable Propeller of Set",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "NABL Certified, India-manufactured propellers for commercial and agriculture drones. Compatible with Hobbywing X8 3090/3011 and T-Motor P80 MF3016. Lightweight, reliable, and precision-balanced for diverse UAV applications.",
+											"type": "text"
+										},
+										{
+											"key": "duties",
+											"value": "Brand\nmPower Lithium\nCapacity\n25200mAh\nCells\nCylindrical\nCharge current: upto 1c\n25A",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "Made 1 from high-energy density Lithium Ion chemistry\nSprays up to 650 acres. Lowest cost per acre\nShipped within 48 hours\nMade in India at its Chennai factory\nBIS certified\nHigh quality manufacturing for long life",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "200",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/update/67ef78152fe33bff7f38076d",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"update",
+										"67ef78152fe33bff7f38076d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/delete/67ef77b72fe33bff7f38076b",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"delete",
+										"67ef77b72fe33bff7f38076b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reviews",
+					"item": [
+						{
+							"name": "Get Data by Client ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/review/client/67f21f20b704389f6902c20c",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"review",
+										"client",
+										"67f21f20b704389f6902c20c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/appointment/getinfo/67f2be781bf40d24f2b10631",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"appointment",
+										"getinfo",
+										"67f2be781bf40d24f2b10631"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Ticket",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"client\": \"67f0c1d9e2e814a1214976b8\",\r\n  \"appointment\": \"67f39055b05afa1a527954b8\",\r\n  \"message\": \"test ticket\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/ticket/add",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"ticket",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "category",
+											"value": "67ef72c7eee06d5ca2f67204",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Home Service Technics 3010 Foldable Propeller of Set",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "NABL Certified, India-manufactured propellers for commercial and agriculture drones. Compatible with Hobbywing X8 3090/3011 and T-Motor P80 MF3016. Lightweight, reliable, and precision-balanced for diverse UAV applications.",
+											"type": "text"
+										},
+										{
+											"key": "duties",
+											"value": "Brand\nmPower Lithium\nCapacity\n25200mAh\nCells\nCylindrical\nCharge current: upto 1c\n25A",
+											"type": "text"
+										},
+										{
+											"key": "availability",
+											"value": "Made 1 from high-energy density Lithium Ion chemistry\nSprays up to 650 acres. Lowest cost per acre\nShipped within 48 hours\nMade in India at its Chennai factory\nBIS certified\nHigh quality manufacturing for long life",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "200",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/update/67ef78152fe33bff7f38076d",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"update",
+										"67ef78152fe33bff7f38076d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "auth-token",
+										"value": "{{auth-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}api/service/delete/67ef77b72fe33bff7f38076b",
+									"host": [
+										"{{baseurl}}api"
+									],
+									"path": [
+										"service",
+										"delete",
+										"67ef77b72fe33bff7f38076b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Services",
+					"item": [
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service/show",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service",
+										"show"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by ID",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service/getedititem/67ef78152fe33bff7f38076d",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service",
+										"getedititem",
+										"67ef78152fe33bff7f38076d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Data by Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}web-api/service/getservicesbycategory/67ef7359eee06d5ca2f6720f",
+									"host": [
+										"{{baseurl}}web-api"
+									],
+									"path": [
+										"service",
+										"getservicesbycategory",
+										"67ef7359eee06d5ca2f6720f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "System Pages",
+					"item": [
+						{
+							"name": "About us",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/aboutus/getedititem/65f1675652ea8cca51f2170c",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"aboutus",
+												"getedititem",
+												"65f1675652ea8cca51f2170c"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Privacy & Policy",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/privacy/getedititem/65f179df52ea8cca51f21713",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"privacy",
+												"getedititem",
+												"65f179df52ea8cca51f21713"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Terms & Condition",
+							"item": [
+								{
+									"name": "Show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/show",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"show"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Data by ID",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "auth-token",
+												"value": "{{auth-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseurl}}api/terms/getedititem/65f179df52ea8cca51f21713",
+											"host": [
+												"{{baseurl}}api"
+											],
+											"path": [
+												"terms",
+												"getedititem",
+												"65f179df52ea8cca51f21713"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					],
+					"description": "### **System Pages contain:**\n\n- About us\n    \n- Privacy Policy\n    \n- Terms & Condition\n    \n- Banner (Slider)\n    \n- Gallery\n    \n- Video\n    \n- Client\n    \n- Review\n    \n- Contact us"
+				}
+			],
+			"description": "All API for website"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://api.favara.shop/",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "baseurl",
+			"value": "http://localhost:3100/",
+			"type": "string"
+		},
+		{
+			"key": "auth-token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6IjY3ZWY2MWI3MzlkZDFlODc2NTBhMzFlNCJ9LCJpYXQiOjE3NDM3NDE0NTV9.SMHwhDRDyUuptcLSSkKFhf_4Gw3Ow06gzJAnbxezGfM",
+			"type": "string"
+		},
+		{
+			"key": "admin_id",
+			"value": "67ef61b739dd1e87650a31e4",
+			"type": "string"
+		}
+	]
+}
