@@ -1,0 +1,99 @@
+body[theme="dark"] {
+  --backcolor: #343a40;
+  --textcolor: #dfdfdf;
+}
+body[theme="light"] {
+  --backcolor: #dfdfdf;
+  --textcolor: #343a40;
+}
+body {
+  background-color: var(--backcolor);
+  color: var(--textcolor);
+}
+.header {
+  background-color: var(--textcolor);
+  padding: 30px;
+}
+.header .navbar {
+  background-color: var(--backcolor);
+  box-shadow: 0 20px 10px -10px rgba(0, 0, 0, 0.3);
+}
+.header .navbar-brand {
+  color: var(--textcolor);
+}
+.header .navbar-nav li {
+  margin-left: 30px;
+}
+.header .navbar-nav a {
+  color: var(--textcolor);
+}
+.header .navbar-nav a.active {
+  color: var(--textcolor) !important;
+}
+.header .navbar-nav {
+  margin-left: 100px;
+}
+.header .navbar-nav .nav-item a {
+  color: var(--textcolor) !important;
+}
+.course {
+  padding: 20px;
+}
+.course .thumbnail {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+  transition: 0.5s;
+}
+.course .thumbnail img{
+  width: 100%;
+  height: 220px !important;
+  object-fit: cover;
+}
+.course .thumbnail:hover {
+  border: 1px solid var(--textcolor);
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.3);
+}
+.course .thumbnail h3 {
+  font-size: 20px;
+  margin: 13px 0;
+}
+.footer {
+  color: var(--textcolor);
+  background-color: var(--backcolor);
+  padding: 50px;
+  margin-top: 100px;
+  box-shadow: 0 -15px 10px -10px rgba(0, 0, 0, 0.3);
+}
+.footer h3 {
+  color: var(--textcolor);
+  margin-bottom: 20px;
+}
+.footer ul li {
+  list-style-position: outside;
+}
+.footer ul li a {
+  color: var(--textcolor);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.title {
+  padding: 50px;
+  text-align: center;
+}
+.contact .contactform {
+  margin-bottom: 50px;
+}
+.contact .contactform .form-group {
+  margin-bottom: 10px;
+}
+.contact .contactform .card,
+.contact .form-control {
+  color: var(--textcolor) !important;
+  background-color: var(--backcolor) !important;
+}
+.navbar-toggler-icon {
+  background: var(--textcolor) !important;
+  border-radius: 6px;
+}

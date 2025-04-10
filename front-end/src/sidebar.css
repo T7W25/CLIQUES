@@ -1,0 +1,121 @@
+/* Sidebar Container */
+.dashboard-container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    /* height: 100vh; */
+    background-color: #343a40;
+    color: white;
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+    width: 66px;
+}
+.sidebar.collapsed .toggle-btn .role{
+    display: none;
+}
+.sidebar.open .toggle-btn .role{
+    display: inline-block;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background-color: #23272b;
+}
+
+.toggle-btn:hover {
+    background-color: #1d2124;
+}
+.toggle-btn .role{
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 16px;
+}
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; 
+}
+
+.sidebar-menu li {
+    padding: 15px;
+    transition: background 0.3s ease;
+}
+
+.sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-menu li a svg {
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+/* Hide text when collapsed */
+.sidebar.collapsed .sidebar-menu li a span {
+    display: none;
+}
+
+/* Hover Effect */
+.sidebar-menu li:hover {
+    background-color: #495057;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+    }
+
+    .sidebar.open {
+        width: 250px;
+    }
+}
+
+.content {
+    width: 100%;
+    padding: 50px;
+    min-height: 700px;
+}
+
+/* datatable */
+.dt-buttons {
+    float: left !important;
+}
+
+.dt-search {
+    float: right !important;
+    margin-bottom: 15px !important;
+}
+
+.dt-length {
+    float: left;
+}
+
+.dt-info {
+    float: left;
+    margin-top: 4px;
+    margin-left: 40px;
+    font-weight: 600;
+    color: blue;
+}
+
+.dt-paging {
+    float: right;
+}
+table.dataTable.table { 
+    margin-bottom: 10px !important;
+}
