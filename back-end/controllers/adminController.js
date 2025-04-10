@@ -30,3 +30,34 @@ exports.getAllUsers = async (req, res) => {
     res.status(500).json({ success: false, message: "Unable to fetch users" });
   }
 };
+
+
+
+const User = require("../models/User");
+
+exports.getVerificationRequests = async (req, res) => {
+  try {
+    const requests = await User.find({ verificationStatus: "pending" });
+    res.json({ success: true, requests });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Error fetching requests" });
+  }
+};
+
+exports.approveVerification = async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(req.params.id, { verificationStatus: "approved" });
+    res.json({ success: true, message: "Approved" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Approval failed" });
+  }
+};
+
+exports.rejectVerification = async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(req.params.id, { verificationStatus: "rejected" });
+    res.json({ success: true, message: "Rejected" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Rejection failed" });
+  }
+};
