@@ -23,3 +23,17 @@ export const updateUserRole = async (id, role) => {
   });
   return res.data;
 };
+
+
+export const getVerificationRequests = async () => {
+  const res = await axios.get(${API}/verify, {
+    headers: { Authorization: Bearer ${localStorage.getItem("token")} },
+  });
+  return res.data;
+};
+
+export const approveVerification = async (id) =>
+  axios.put(${API}/verify/${id}/approve);
+
+export const rejectVerification = async (id) =>
+  axios.put(${API}/verify/${id}/reject);
