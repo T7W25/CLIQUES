@@ -23,3 +23,32 @@ exports.escalateToAdmin = async (req, res) => {
 };
 
 const reports = await Report.find({ status: { $in: ["pending", "in_review"] } }).lean();
+
+
+
+const Review = require("../models/Review");
+
+exports.getSuspiciousReviews = async (req, res) => {
+  try {
+    const reviews = await Review.find({
+      $or: [
+        { text: /(?:free|offer|click here|http)/i },
+        { duplicate: true }
+      ],
+      reviewed: false
+    });
+    res.json({ success: true, reviews });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to fetch reviews" });
+  }
+};
+
+exports.markAsReviewed = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Review.findByIdAndUpdate(id, { reviewed: true });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Update failed" });
+  }
+};
