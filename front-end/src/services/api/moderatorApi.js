@@ -16,3 +16,17 @@ export const escalateReport = async (id) => {
   });
   return res.data;
 };
+
+
+export const getSuspiciousReviews = async () => {
+  const res = await axios.get(${API}/suspicious-reviews, {
+    headers: { Authorization: Bearer ${localStorage.getItem("token")} }
+  });
+  return res.data;
+};
+
+export const markAsReviewed = async (id) => {
+  return axios.put(${API}/reviews/${id}/reviewed, {}, {
+    headers: { Authorization: Bearer ${localStorage.getItem("token")} }
+  });
+};
