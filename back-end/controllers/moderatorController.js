@@ -52,3 +52,18 @@ exports.markAsReviewed = async (req, res) => {
     res.status(500).json({ success: false, message: "Update failed" });
   }
 };
+
+const recentReviews = await Review.find().sort({ createdAt: -1 }).limit(100).lean();
+const seen = new Set();
+const flagged = [];
+
+recentReviews.forEach((review) => {
+  const normalized = review.text.toLowerCase().trim();
+  if (seen.has(normalized)) {
+    flagged.push(review._id);
+  } else {
+    seen.add(normalized);
+  }
+});
+
+await Review.updateMany({ _id: { $in: flagged } }, { duplicate: true });
