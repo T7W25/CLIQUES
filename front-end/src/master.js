@@ -25,7 +25,7 @@ import ServiceDetail from "./Components/Pages/ServiceDetail";
 import Register from "./Components/Pages/Register";
 // import Feedback from "./Components/User/Feedback";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import Unauthorized from "./Components/Error/Unauthorized"; // Optional if you want a 403 page
+import Unauthorized from "./Components/Error/Unauthorized"; // Optional for a 403 page
 import ManageBookings from "./Components/User/ManageBookings";
 import MyBookings from "./Components/User/MyBookings";
 import MyTickets from "./Components/User/MyTickets";
