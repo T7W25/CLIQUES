@@ -61,3 +61,8 @@ exports.rejectVerification = async (req, res) => {
     res.status(500).json({ success: false, message: "Rejection failed" });
   }
 };
+
+const requests = await User.find(
+  { verificationStatus: "pending" },
+  "name email verificationStatus"
+).lean();
