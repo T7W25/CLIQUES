@@ -12,3 +12,7 @@ router.put("/users/:id/toggle-status", auth, toggleUserStatus);
 router.put("/users/:id/role", auth, updateUserRole);
 
 module.exports = router;
+
+router.get("/verify", auth, getVerificationRequests);
+router.put("/verify/:id/approve", auth, approveVerification);
+router.put("/verify/:id/reject", auth, rejectVerification);
