@@ -21,3 +21,12 @@ exports.updateUserRole = async (req, res) => {
     res.status(500).json({ success: false, message: "Role update failed" });
   }
 };
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("name email role suspended").lean();
+    res.json({ success: true, users });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Unable to fetch users" });
+  }
+};
