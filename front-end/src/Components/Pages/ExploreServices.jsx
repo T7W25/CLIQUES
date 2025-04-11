@@ -40,7 +40,7 @@ const ExploreServices = () => {
 
     // Fetch categories
     useEffect(() => {
-        fetch("http://localhost:3100/api/category/show")
+        fetch("https://cliques-backend-1av9.onrender.com/api/category/show")
             .then((res) => res.json())
             .then((data) => setCategories(data.data || []))
             .catch((err) => console.error("Error fetching categories:", err));
