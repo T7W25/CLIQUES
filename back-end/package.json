@@ -1,13 +1,13 @@
 {
   "name": "employee_backend",
   "version": "1.0.0",
-  "description": "EMS backend - made by hitkumar savaliya",
+  "description": "EMS backend - made team 7",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon server.js"
   },
-  "author": "Hitkumar savaliya",
+  "author": "team 7",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
